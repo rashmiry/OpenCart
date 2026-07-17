@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- search log4j2 xml file in google it will give sample xml files-->
+<Configuration status="INFO">
+
+    <Properties>
+        <Property name="basePath">./logs</Property> <!-- location -->
+    </Properties>
+
+    <Appenders> <!-- it will decide where to genereate the logs like in console or file-->
+
+        <!-- Console Appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <!-- Rolling File Appender -->
+        <RollingFile
+                name="File"
+                fileName="${basePath}/automation.log"
+                filePattern="${basePath}/automation-%d{yyyy-MM-dd}-%i.log">
+
+            <PatternLayout
+                pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+
+            <SizeBasedTriggeringPolicy size="5000"/> <!-- When file size reaches 5000 bytes Create a new log file.-->
+
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers> <!-- what type of logs to generate-->
+
+        <!-- Log Levels:
+             All < Trace < Debug < Info < Warn < Error < Fatal < Off
+        -->
+
+        <Root level="Debug">
+            <AppenderRef ref="Console"/> 
+            <!--<AppenderRef ref="File"/> -->
+        </Root>
+
+    </Loggers>
+
+</Configuration>

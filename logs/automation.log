@@ -1,0 +1,14 @@
+20:05:47.316 [main] INFO  testCases.TC_001_AccountRegistrationTest - ***** Staring TC_001_AccountRegistrationTest *****
+20:05:47.437 [main] INFO  testCases.TC_001_AccountRegistrationTest - ****** clicked on my account link ****
+20:05:48.043 [main] INFO  testCases.TC_001_AccountRegistrationTest - clicked on register link
+20:05:48.047 [main] INFO  testCases.TC_001_AccountRegistrationTest - Providing cx details
+20:05:48.593 [main] INFO  testCases.TC_001_AccountRegistrationTest - Validating expected message
+20:05:49.771 [main] ERROR testCases.TC_001_AccountRegistrationTest - Test Failed...
+20:05:49.771 [main] DEBUG testCases.TC_001_AccountRegistrationTest - Debug logs....
+20:07:00.182 [main] INFO  testCases.TC_001_AccountRegistrationTest - ***** Staring TC_001_AccountRegistrationTest *****
+20:07:00.302 [main] INFO  testCases.TC_001_AccountRegistrationTest - ****** clicked on my account link ****
+20:07:00.956 [main] INFO  testCases.TC_001_AccountRegistrationTest - clicked on register link
+20:07:00.959 [main] INFO  testCases.TC_001_AccountRegistrationTest - Providing cx details
+20:07:03.412 [main] INFO  testCases.TC_001_AccountRegistrationTest - Validating expected message
+20:07:03.466 [main] ERROR testCases.TC_001_AccountRegistrationTest - Test Failed...
+20:07:03.466 [main] DEBUG testCases.TC_001_AccountRegistrationTest - Debug logs....
