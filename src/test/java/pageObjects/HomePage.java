@@ -8,7 +8,7 @@ public class HomePage extends BasePage
 {
 	public HomePage(WebDriver driver)
 	{
-		super(driver);
+		super(driver); // Without super(driver), the parent class would not receive the driver, so page elements would not be initialized correctly.
 	}
 	
 	@FindBy(xpath = "//span[normalize-space()='My Account']") WebElement lnkAccount;

@@ -23,7 +23,6 @@ public class TC_001_AccountRegistrationTest extends BaseClass
 		
 		try
 		{
-		
 			HomePage hp = new HomePage(driver);
 			hp.clickMyAccount();
 			

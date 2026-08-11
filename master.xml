@@ -4,6 +4,10 @@
 
 <suite name="Suite">
 
+<!-- this i have added here for open only browser for login and search-->
+	<parameter name="os" value="Windows"/>
+    <parameter name="browser" value="chrome"/>
+    
 <!-- To attach report-->
   <listeners>
   		<listener class-name="utilities.ExtentReportManager"/>
@@ -11,13 +15,14 @@
 
   <test thread-count="5" name="Test">
   
-  <parameter name="os" value="Windows"/>
-  <parameter name="browser" value="chrome"/>
+  <!-- <parameter name="os" value="Windows"/>
+  <parameter name="browser" value="chrome"/> -->
   
     <classes>
-   		<class name="testCases.TC_001_AccountRegistrationTest"/> 
-	    <class name="testCases.TC_002_LoginTest"/> 
+   		<!-- <class name="testCases.TC_001_AccountRegistrationTest"/>  -->
+	    <class name="testCases.TC_002_LoginTest"/>
 	    <!-- <class name="testCases.TC_003_LoginDDT"/> -->
+	    <class name="testCases.TC_004_SearchPageTest"/>
     </classes>
     
   </test> <!-- Test -->

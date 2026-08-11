@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.Map;
 import java.util.Properties;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -16,26 +17,31 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
 
 public class BaseClass
 {
 	public static WebDriver driver;
-	public Logger logger; // Log4j
-	public Properties p;
+//	public Logger logger; // Log4j
+	public static Logger logger;
+	public static Properties p; 
+//	public Properties p; 
 	
-	@BeforeClass(groups = {"Sanity", "Regression","Master"})
+	@BeforeSuite(groups = {"Sanity", "Regression","Master"})
 	@Parameters({"os","browser"})
+	
 	public void setup(String os, String br) throws IOException
 	{
 		// loading config.properties file
 		FileReader file = new FileReader("./src//test//resources//config.properties");
-		p = new Properties();
+		p = new Properties(); // read key-value pairs from a .properties file.
 		p.load(file);
 		
 		
@@ -43,7 +49,15 @@ public class BaseClass
 		
 		switch (br.toLowerCase())
 		{
-		case "chrome": driver = new ChromeDriver();
+		case "chrome": 
+			ChromeOptions options = new ChromeOptions();
+		    options.addArguments("--disable-features=PasswordLeakDetection");
+		    options.setExperimentalOption("prefs", Map.of(
+		        "credentials_enable_service", false,
+		        "profile.password_manager_enabled", false
+		    ));
+		    
+			driver = new ChromeDriver();
 			break;
 		case "edge": driver = new EdgeDriver();
 			break;
@@ -66,12 +80,12 @@ public class BaseClass
 //		driver.close();
 //	}
 	
-	@AfterClass(groups = {"Sanity", "Regression", "Master"})
-	public void tearDown() {
-	    if (driver != null) {
-	        driver.quit();
-	    }
-	}
+//	@AfterClass(groups = {"Sanity", "Regression", "Master"})
+//	public void tearDown() {
+//	    if (driver != null) {
+//	        driver.quit();
+//	    }
+//	}
 	
 	public String randomString()
 	{
