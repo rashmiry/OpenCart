@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
@@ -50,19 +51,28 @@ public class BaseClass
 		switch (br.toLowerCase())
 		{
 		case "chrome": 
+			// to remove the change password popup  
 			ChromeOptions options = new ChromeOptions();
+
+		    Map<String, Object> prefs = new HashMap<>();
+
+		    prefs.put("credentials_enable_service", false);
+		    prefs.put("profile.password_manager_enabled", false);
+		    prefs.put("profile.password_manager_leak_detection", false);
+
+		    options.setExperimentalOption("prefs", prefs);
+
 		    options.addArguments("--disable-features=PasswordLeakDetection");
-		    options.setExperimentalOption("prefs", Map.of(
-		        "credentials_enable_service", false,
-		        "profile.password_manager_enabled", false
-		    ));
 		    
-			driver = new ChromeDriver();
-			break;
+			    driver = new ChromeDriver(options);
+			    break;
+			    
 		case "edge": driver = new EdgeDriver();
 			break;
+			
 		case "firefox": driver = new FirefoxDriver();
 			break;
+			
 		default: System.out.println("Invalid browser name...");
 			return;
 		}

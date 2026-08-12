@@ -8,12 +8,12 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testCases.TC_004_SearchPageTest">
+      <class name="testCases.TC_005_AddToCartTest">
         <methods>
+          <include name="verifyAddHPProductToCart"/>
           <include name="setup"/>
-          <include name="verifySearchProduct"/>
         </methods>
-      </class> <!-- testCases.TC_004_SearchPageTest -->
+      </class> <!-- testCases.TC_005_AddToCartTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -19,8 +19,7 @@ public class SearchPage extends BasePage
 	 public void searchProduct(String productName)
 	 {
 		 search_box.clear();
-		 search_box.sendKeys(productName);
-		 
+		 search_box.sendKeys(productName);	 
 	 }
 	 
 	 public void clickSearchButton()
